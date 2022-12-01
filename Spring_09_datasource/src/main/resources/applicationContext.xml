@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            ">
+
+   <!-- 管理DruidDataSource对象 -->
+<!--   <bean class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/xxxx"/>-->
+<!--        <property name="username" value="xxxx"/>-->
+<!--        <property name="password" value="xxxx"/>-->
+<!--    </bean>-->
+
+    <!-- 管理c3p0对象 -->
+<!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+<!--        <property name="driverClass" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/xxxx"/>-->
+<!--        <property name="user" value="xxxx"/>-->
+<!--        <property name="password" value="xxxx"/>-->
+<!--    </bean>-->
+
+    <!-- 1.开启context命名空间：加上xmlns:context并修改xsi:schemaLocation -->
+    <!--
+        2.使用context空间加载properties文件
+            location：需要加载的配置文件(可以加载多个)
+                classpath:*.properties：设置加载当前工程类路径中的所有properties文件，等同于*.properties
+                classpath*:*.properties：设置加载当前工程类路径和当前工程所依赖的所有jar包中的所有properties文件
+            system-properties-mode：是否加载系统属性，防止自己的配置文件中和系统中的key一致(会优先使用系统中的)
+    -->
+    <context:property-placeholder location="jdbc.properties" system-properties-mode="NEVER"/>
+<!--    <context:property-placeholder location="jdbc.properties,jdbc2.properties" system-properties-mode="NEVER"/>-->
+<!--    <context:property-placeholder location="*.properties" system-properties-mode="NEVER"/>-->
+<!--    <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>-->
+
+    <!-- 3.使用属性占位符${}读取properties文件中的属性 -->
+    <bean class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="bookDao" class="com.psj.dao.impl.BookDaoImpl">
+        <property name="name" value="${username}"/>
+    </bean>
+
+</beans>

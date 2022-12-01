@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="bookDao" class="com.psj.dao.impl.BookDaoImpl">
+        <!--数组注入-->
+        <property name="array">
+            <array>
+                <value>100</value>
+                <value>200</value>
+                <value>300</value>
+            </array>
+        </property>
+        <!--list集合注入-->
+        <property name="list">
+            <list>
+                <value>psj</value>
+                <value>psj2</value>
+            </list>
+        </property>
+        <!--set集合注入-->
+        <property name="set">
+            <set>
+                <value>psw</value>
+                <value>psw</value>
+            </set>
+        </property>
+        <!--map集合注入-->
+        <property name="map">
+            <map>
+                <entry key="country" value="xxx"/>
+                <entry key="province" value="xxx"/>
+                <entry key="city" value="xxx"/>
+            </map>
+        </property>
+        <!--Properties注入-->
+        <property name="properties">
+            <props>
+                <prop key="country">xxx</prop>
+                <prop key="province">xxx</prop>
+                <prop key="city">xxx</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
