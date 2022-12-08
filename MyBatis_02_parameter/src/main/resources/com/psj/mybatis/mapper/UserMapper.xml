@@ -7,28 +7,48 @@
 
     <!--User getUserByUsername(String username);-->
     <select id="getUserByUsername" resultType="User">
+        <!--
+            1.单个参数时，${xxx}和#{xxx}中xxx都可以是任意字符串
+            2.注意${}要加上单引号
+        -->
         <!--select * from t_user where username = #{username}-->
         select * from t_user where username = '${username}'
     </select>
 
     <!--User checkLogin(String username, String password);-->
     <select id="checkLogin" resultType="User">
+        <!--
+            1.多个参数时，${xxx}和#{xxx}中xxx只能写为param0/1/...或者agr0/1/...
+            2.注意${}要加上单引号
+        -->
         <!--select * from t_user where username = #{param1} and password = #{param2}-->
         select * from t_user where username = '${param1}' and password = '${param2}'
     </select>
 
     <!--User checkLoginByMap(Map<String, Object> map);-->
     <select id="checkLoginByMap" resultType="User">
+        <!--
+            1.以自己设定的Map作为参数，${xxx}和#{xxx}中xxx可以不写为param和arg，写为自己map中设定的键)
+            2.注意${}要加上单引号
+        -->
         select * from t_user where username = #{username} and password = #{password}
     </select>
 
     <!--void insertUser(User user);-->
     <insert id="insertUser">
+        <!--
+            1.以对象作为参数，${xxx}和#{xxx}中xxx写对象的属性名即可
+            2.注意${}要加上单引号
+        -->
         insert into t_user values(null,#{username},#{password},#{age},#{gender},#{email})
     </insert>
 
     <!--User checkLoginByParam(@Param("username") String username, @Param("password") String password);-->
     <select id="checkLoginByParam" resultType="User">
+        <!--
+            1.以@Param标识参数，${xxx}和#{xxx}中xxx写为@Param中定义的名称即可(相当于自定义的键)
+            2.注意${}要加上单引号
+        -->
         select * from t_user where username = #{username} and password = #{password}
     </select>
 

@@ -10,8 +10,7 @@ import java.util.Map;
 public interface SelectMapper {
 
     /**
-     * 若sql语句查询的结果为多条时，一定不能以实体类类型作为方法的返回值
-     * 否则会抛出异常TooManyResultsException
+     * 若sql语句查询的结果为多条时，一定不能以实体类类型作为方法的返回值，否则会抛出异常TooManyResultsException
      * 若sql语句查询的结果为1条时，此时可以使用实体类类型或list集合类型作为方法的返回值
      */
 
