@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psj.mybatis.mapper.UserMapper">
+    <!--int insertUser();-->
+    <insert id="insertUser">
+        insert into t_user values(1,'admin','123456',100,'男','12345@qq.com')
+    </insert>
+
+    <!--int updateUser();-->
+    <update id="updateUser">
+        update t_user set username='psj',password='123' where id = 1
+    </update>
+
+    <!--int deleteUser();-->
+    <delete id="deleteUser">
+        delete from t_user where id = 1
+    </delete>
+
+    <!--User getUserById();-->
+    <!--
+        查询的标签select必须设置属性resultType或resultMap
+        resultType：自动映射，用于属性名和表中字段名一致的情况
+        resultMap：自定义映射，用于一对多或多对一或字段名和属性名不一致的情况
+    -->
+    <select id="getUserById" resultType="com.psj.mybatis.pojo.User">
+        select * from t_user where id = 1
+    </select>
+
+    <!--List<User> getUserList();-->
+    <!--这里不是返回一个集合，还是返回集合中对于的Java类型-->
+    <select id="getAllUser" resultType="com.psj.mybatis.pojo.User">
+        select * from t_user
+    </select>
+
+</mapper>
