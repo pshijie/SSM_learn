@@ -55,7 +55,7 @@ public interface SelectMapper {
      * 将查询的某个字段的值作为大的map的键
      *
      * @MapKey("id") Map<String, Object> getAllUserToMap();
-     * 结果：
+     * 结果：相当于用@MapKey("id")中id作为键，Map<String, Object>作为值
      * {
      * 1={password=123456, gender=男, id=1, age=23, email=12345@qq.com, username=admin},
      * 2={password=123, gender=男, id=2, age=23, email=12345@qq.com, username=zhangsan},

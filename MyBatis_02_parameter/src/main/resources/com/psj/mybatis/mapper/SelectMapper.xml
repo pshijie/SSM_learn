@@ -24,6 +24,10 @@
         String：string
     -->
     <select id="getCount" resultType="int">
+        <!--
+            resultType可以写为java.lang.Integer、int、INT、Integer等
+            实际上int、Integer是MyBatis为java.lang.Integer设置的别名
+        -->
         select count(*) from t_user
     </select>
 
