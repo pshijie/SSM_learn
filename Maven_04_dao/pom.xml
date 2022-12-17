@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.psj.Maven</groupId>
+    <artifactId>Maven_04_dao</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--配置当前工程继承自parent工程-->
+    <parent>
+        <groupId>com.psj.Maven</groupId>
+        <artifactId>Maven_01_parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <!--设置父项目pom.xml位置路径-->
+        <relativePath>../Maven_01_parent/pom.xml</relativePath>
+    </parent>
+
+    <dependencies>
+        <!--依赖domain-->
+        <dependency>
+            <groupId>com.psj.Maven</groupId>
+            <artifactId>Maven_03_pojo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <!--            <optional>true</optional>-->
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis</groupId>-->
+<!--            <artifactId>mybatis</artifactId>-->
+<!--            <version>3.5.6</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--            <version>5.1.47</version>-->
+<!--        </dependency>-->
+    </dependencies>
+
+</project>

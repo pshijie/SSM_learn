@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.psj.Maven</groupId>
+    <artifactId>Maven_03_pojo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--配置当前工程继承自parent工程-->
+    <parent>
+        <groupId>com.psj.Maven</groupId>
+        <artifactId>Maven_01_parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <!--设置父项目pom.xml位置路径-->
+        <relativePath>../Maven_01_parent/pom.xml</relativePath>
+    </parent>
+
+</project>
