@@ -1,0 +1,25 @@
+# dataSource
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/xxxx?serverTimezone=UTC
+    username: xxxx
+    password: xxxx
+  main:
+    banner-mode: off
+# mp日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false
+    db-config:
+      id-type: assign_id  # 设置全局主键ID生成策略(即所有表都使用该策略)
+      table-prefix: tbl_  # 自动在所有domain类名前加上tbl_前缀，也就不需要加上@TableName("tbl_xxx")
+      # 逻辑删除字段名
+      logic-delete-field: deleted
+      # 逻辑删除字面值：未删除为0
+      logic-not-delete-value: 0
+      # 逻辑删除字面值：删除为1
+      logic-delete-value: 1

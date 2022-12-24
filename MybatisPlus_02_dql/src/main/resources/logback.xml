@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+</configuration>
+<!--控制台打印的日志比较多，速度慢且不利于查看运行结果,所以配置该文件-->
